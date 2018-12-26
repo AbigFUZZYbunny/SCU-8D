@@ -20,7 +20,7 @@ void PCA96XX::init(int _bus, uint8_t _add){
 	i2cAddress = _add;
 	i2cBus = _bus;
 
-	write_register(PCA96XX_MODE1, 0xA1);
+	write_register(PCA96XX_MODE1, 0x81);
 	write_register(PCA96XX_MODE2, 0x05);
 }
 

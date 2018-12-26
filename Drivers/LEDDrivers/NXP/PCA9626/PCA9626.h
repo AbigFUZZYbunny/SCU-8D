@@ -19,7 +19,7 @@ public:
 	void begin();
 	void dim(uint8_t _grppwm);
 	void set_output();
-	void adjust_output(uint8_t _out[3]);
+	void adjust_output(uint8_t _out, int _port);
 };
 
 #define PCA9626_ALLCALL 		0x26

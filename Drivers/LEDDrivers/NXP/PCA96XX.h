@@ -23,22 +23,16 @@ public:
 	int ports; //9626 = 3; 9624 = 2; 9622 = 1;
 	void write_register(uint8_t register_pointer, uint8_t register_value);
 
-	// Define 8 separate bit flags (these can represent whatever you want)
-	const unsigned char option0 = 1 << 0; // 0000 0001
-	const unsigned char option1 = 1 << 1; // 0000 0010
-	const unsigned char option2 = 1 << 2; // 0000 0100
-	const unsigned char option3 = 1 << 3; // 0000 1000
-	const unsigned char option4 = 1 << 4; // 0001 0000
-	const unsigned char option5 = 1 << 5; // 0010 0000
-	const unsigned char option6 = 1 << 6; // 0100 0000
-	const unsigned char option7 = 1 << 7; // 1000 0000
+	const int option0 = 0;
+	const int option1 = 1;
+	const int option2 = 2;
+	const int option3 = 3;
+	const int option4 = 4;
+	const int option5 = 5;
+	const int option6 = 6;
+	const int option7 = 7;
 
-	unsigned char port0 = 0;
-	unsigned char port1 = 0;
-	unsigned char port2 = 0;
-	unsigned char port3 = 0;
-	unsigned char port4 = 0;
-	unsigned char port5 = 0;
+	uint8_t portList[6] = {0x00,0x00,0x00,0x00,0x00,0x00};
 };
 
 #define PCA96XX_MODE1	0x00
