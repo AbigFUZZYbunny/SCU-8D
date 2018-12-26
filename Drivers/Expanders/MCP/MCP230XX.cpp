@@ -42,7 +42,7 @@ void MCP230XX::write_register(uint8_t register_pointer, uint8_t register_value)
     }
 }
 
-uint8_t ** MCP230XX::read_state(uint8_t * receive_buffer[2]){
+uint8_t ** MCP230XX::read_state(uint8_t ** receive_buffer){ //receive_buffer will be curState passed to this argument
 	uint8_t _GPIOA = (uint8_t)MCP230XX_GPIOA;
 	uint8_t _GPIOB = (uint8_t)MCP230XX_GPIOB;
 	switch(i2cBus){
@@ -70,6 +70,7 @@ uint8_t ** MCP230XX::read_state(uint8_t * receive_buffer[2]){
 
 		return receive_buffer;
 	}else{
+
 		return receive_buffer;
 	}
 }
@@ -90,5 +91,5 @@ uint8_t MCP230XX::set_output(uint8_t _out){
 			break;
 	}
 
-	return data[1];
+	return _out;
 }

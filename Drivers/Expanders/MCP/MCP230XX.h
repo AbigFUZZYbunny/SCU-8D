@@ -26,8 +26,6 @@ public:
 	void write_register(uint8_t register_pointer, uint8_t register_value);
 	uint8_t curState[2];
 
-private:
-
 };
 
 // registers for both 16 bit and 8 bit
