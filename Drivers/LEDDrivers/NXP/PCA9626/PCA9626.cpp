@@ -91,6 +91,94 @@ void PCA9626::dim(uint8_t _grppwm){
 	write_register(PCA9626_GRPPWM, _grppwm);
 }
 
-void PCA9626::set_output(uint8_t _out[6]){
+void PCA9626::set_output(){
 
+	for(int i = 0; i < ports * 2; i++){
+		switch(i){
+		case 0:
+
+			break;
+		case 1:
+
+			break;
+		case 2:
+
+			break;
+		case 3:
+
+			break;
+		case 4:
+
+			break;
+		case 5:
+
+			break;
+		}
+
+		curState[i] = _out[i];
+	}
+}
+
+void PCA9626::adjust_output(uint8_t _out[ports]){
+	/*for(int y = 0; y < 8; y++){
+				switch((_out[i] >> y)  & 0x01){
+				case 1:
+					switch(i){
+					case 1:
+						switch(y){
+						case 0:
+							if(i == 0){
+								port0 |= (option0 | option1);
+							}else if(i == 1){
+								port2 |= (option0 | option1);
+							}else{
+								port4 |= (option0 | option1);
+							}
+							break;
+						case 1:
+							port0 |= (option2 | option3);
+							break;
+						case 2:
+							port0 |= (option4 | option5);
+							break;
+						case 3:
+							port0 |= (option6 | option7);
+							break;
+						case 4:
+							port1 |= (option0 | option1);
+							break;
+						case 5:
+							port1 |= (option2 | option3);
+							break;
+						case 6:
+							port1 |= (option4 | option5);
+							break;
+						case 7:
+							port1 |= (option6 | option7);
+							break;
+						}
+
+
+						break;
+					case 2:
+						if(y < 4){
+							port2 |= (option4 | option5);
+						}else{
+							port3 |= (option4 | option5);
+						}
+						break;
+					case 3:
+						if(y < 4){
+							port4 |= (option4 | option5);
+						}else{
+							port5 |= (option4 | option5);
+						}
+						break;
+					}
+					break;
+				case 0:
+
+					break;
+				}
+			}*/
 }

@@ -211,7 +211,7 @@ Discarded input sections
  .ARM.exidx.text._ZN7PCA96263dimEh
                 0x00000000        0x8 Drivers\LEDDrivers\NXP\PCA9626\PCA9626.o
  .text._ZN7PCA962610set_outputEPh
-                0x00000000       0x16 Drivers\LEDDrivers\NXP\PCA9626\PCA9626.o
+                0x00000000       0x3c Drivers\LEDDrivers\NXP\PCA9626\PCA9626.o
  .ARM.extab.text._ZN7PCA962610set_outputEPh
                 0x00000000        0x0 Drivers\LEDDrivers\NXP\PCA9626\PCA9626.o
  .ARM.exidx.text._ZN7PCA962610set_outputEPh
@@ -222,13 +222,13 @@ Discarded input sections
                 0x00000000        0xc Drivers\LEDDrivers\NXP\PCA9626\PCA9626.o
  .rodata._ZTS7PCA9626
                 0x00000000        0x9 Drivers\LEDDrivers\NXP\PCA9626\PCA9626.o
- .debug_info    0x00000000     0x1163 Drivers\LEDDrivers\NXP\PCA9626\PCA9626.o
- .debug_abbrev  0x00000000      0x311 Drivers\LEDDrivers\NXP\PCA9626\PCA9626.o
+ .debug_info    0x00000000     0x1196 Drivers\LEDDrivers\NXP\PCA9626\PCA9626.o
+ .debug_abbrev  0x00000000      0x322 Drivers\LEDDrivers\NXP\PCA9626\PCA9626.o
  .debug_aranges
                 0x00000000       0x50 Drivers\LEDDrivers\NXP\PCA9626\PCA9626.o
  .debug_ranges  0x00000000       0x40 Drivers\LEDDrivers\NXP\PCA9626\PCA9626.o
- .debug_line    0x00000000      0x37c Drivers\LEDDrivers\NXP\PCA9626\PCA9626.o
- .debug_str     0x00000000      0xd45 Drivers\LEDDrivers\NXP\PCA9626\PCA9626.o
+ .debug_line    0x00000000      0x38e Drivers\LEDDrivers\NXP\PCA9626\PCA9626.o
+ .debug_str     0x00000000      0xd4e Drivers\LEDDrivers\NXP\PCA9626\PCA9626.o
  .comment       0x00000000       0x7d Drivers\LEDDrivers\NXP\PCA9626\PCA9626.o
  .debug_frame   0x00000000      0x114 Drivers\LEDDrivers\NXP\PCA9626\PCA9626.o
  .ARM.attributes
@@ -272,13 +272,13 @@ Discarded input sections
                 0x00000000        0x8 Drivers\LEDDrivers\NXP\PCA96XX.o
  .rodata._ZTS7PCA96XX
                 0x00000000        0x9 Drivers\LEDDrivers\NXP\PCA96XX.o
- .debug_info    0x00000000     0x11ac Drivers\LEDDrivers\NXP\PCA96XX.o
+ .debug_info    0x00000000     0x118f Drivers\LEDDrivers\NXP\PCA96XX.o
  .debug_abbrev  0x00000000      0x309 Drivers\LEDDrivers\NXP\PCA96XX.o
  .debug_aranges
                 0x00000000       0x40 Drivers\LEDDrivers\NXP\PCA96XX.o
  .debug_ranges  0x00000000       0x30 Drivers\LEDDrivers\NXP\PCA96XX.o
  .debug_line    0x00000000      0x345 Drivers\LEDDrivers\NXP\PCA96XX.o
- .debug_str     0x00000000      0xe58 Drivers\LEDDrivers\NXP\PCA96XX.o
+ .debug_str     0x00000000      0xe4f Drivers\LEDDrivers\NXP\PCA96XX.o
  .comment       0x00000000       0x7d Drivers\LEDDrivers\NXP\PCA96XX.o
  .debug_frame   0x00000000       0xcc Drivers\LEDDrivers\NXP\PCA96XX.o
  .ARM.attributes
