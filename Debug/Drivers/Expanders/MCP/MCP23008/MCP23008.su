@@ -1,0 +1,4 @@
+MCP23008.cpp:10:1:MCP23008::MCP23008()	16	static
+MCP23008.cpp:15:1:MCP23008::~MCP23008()	16	static
+MCP23008.cpp:15:1:virtual MCP23008::~MCP23008()	16	static
+MCP23008.cpp:19:6:void MCP23008::begin(bool)	16	static

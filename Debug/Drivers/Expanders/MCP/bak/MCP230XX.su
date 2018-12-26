@@ -1,0 +1,4 @@
+MCP230XX.c:17:6:write_register	24	static
+MCP230XX.c:34:11:read_state	32	static
+MCP230XX.c:64:9:set_output	24	static
+MCP230XX.c:85:6:init	0	static

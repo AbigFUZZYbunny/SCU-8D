@@ -1,0 +1,7 @@
+MCP230XX.cpp:11:1:MCP230XX::MCP230XX()	16	static
+MCP230XX.cpp:15:1:MCP230XX::~MCP230XX()	16	static
+MCP230XX.cpp:15:1:virtual MCP230XX::~MCP230XX()	16	static
+MCP230XX.cpp:20:6:void MCP230XX::init(int, uint8_t)	24	static
+MCP230XX.cpp:28:6:void MCP230XX::write_register(uint8_t, uint8_t)	32	static
+MCP230XX.cpp:45:12:uint8_t** MCP230XX::read_state(uint8_t**)	32	static
+MCP230XX.cpp:77:9:uint8_t MCP230XX::set_output(uint8_t)	32	static
