@@ -55,6 +55,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include <stdint.h>
 
 /* USER CODE BEGIN Includes */
 
@@ -97,9 +98,11 @@ int ACTIVE_H;
 int TOTAL_WIDTH;
 int TOTAL_HEIGHT;
 
-int MAIN_BG_COLOR[3];
-int L1_BG_COLOR[3];
-int L2_BG_COLOR[3];
+uint8_t MAIN_BG_COLOR[3];
+uint8_t L1_BG_COLOR[3];
+uint8_t L2_BG_COLOR[3];
+
+int REFRESH_RATE;
 /* USER CODE END Private defines */
 
 void MX_LTDC_Init(void);
