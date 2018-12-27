@@ -23,19 +23,17 @@ public:
 	int ports; //9626 = 3; 9624 = 2; 9622 = 1;
 	void write_register(uint8_t register_pointer, uint8_t register_value);
 
-	const int option0 = 0;
-	const int option1 = 1;
-	const int option2 = 2;
-	const int option3 = 3;
-	const int option4 = 4;
-	const int option5 = 5;
-	const int option6 = 6;
-	const int option7 = 7;
-
 	uint8_t portList[6] = {0x00,0x00,0x00,0x00,0x00,0x00};
+
+	void set_output();
+	void adjust_output(uint8_t _out[3]);
 };
 
-#define PCA96XX_MODE1	0x00
-#define PCA96XX_MODE2	0x01
+#define PCA96XX_MODE1		0x00
+#define PCA96XX_MODE2		0x01
+#define PCA9626_LEDOUT0		0x1D
+#define PCA9624_LEDOUT0		0x0C
+#define PCA9622_LEDOUT0		0x14
+
 
 #endif /* LEDDRIVERS_TI_PCA96XX_H_ */

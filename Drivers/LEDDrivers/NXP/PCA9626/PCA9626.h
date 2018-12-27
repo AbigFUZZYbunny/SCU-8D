@@ -18,17 +18,9 @@ public:
 	void begin(uint8_t _pwm[24]);
 	void begin();
 	void dim(uint8_t _grppwm);
-	void set_output();
-	void adjust_output(uint8_t _out, int _port);
 };
 
 #define PCA9626_ALLCALL 		0x26
-#define PCA9626_LEDOUT0			0x1D
-#define PCA9626_LEDOUT1			0x1E
-#define PCA9626_LEDOUT2			0x1F
-#define PCA9626_LEDOUT3			0x20
-#define PCA9626_LEDOUT4			0x21
-#define PCA9626_LEDOUT5			0x22
 #define PCA9626_PWM0			0x02
 #define PCA9626_PWM1			0x03
 #define PCA9626_PWM2			0x04
