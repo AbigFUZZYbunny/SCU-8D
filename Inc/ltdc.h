@@ -63,7 +63,11 @@
 extern LTDC_HandleTypeDef hltdc;
 
 /* USER CODE BEGIN Private defines */
-
+#define SIZE                 	110
+#define DISPLAY_WIDTH        	480
+#define DISPLAY_HEIGHT       	272
+#define ACTIVE_AREA_START_X 	1
+#define ACTIVE_AREA_START_Y    	1
 /* USER CODE END Private defines */
 
 void MX_LTDC_Init(void);
