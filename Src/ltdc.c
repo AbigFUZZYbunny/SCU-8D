@@ -59,6 +59,13 @@ LTDC_HandleTypeDef hltdc;
 /* LTDC init function */
 void MX_LTDC_Init(void)
 {
+	ACTIVE_H = (VSYNC + LCD_HEIGHT + VBP - 1);
+	ACTIVE_W = (HSYNC + LCD_WIDTH + HBP - 1);
+
+	TOTAL_HEIGHT = (VSYNC + VBP + LCD_HEIGHT + VFP - 1);
+	TOTAL_WIDTH = (HSYNC + HBP + LCD_WIDTH + HFP - 1);
+
+
   LTDC_LayerCfgTypeDef pLayerCfg = {0};
   LTDC_LayerCfgTypeDef pLayerCfg1 = {0};
 

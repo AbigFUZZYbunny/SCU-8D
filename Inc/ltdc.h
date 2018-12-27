@@ -63,11 +63,43 @@
 extern LTDC_HandleTypeDef hltdc;
 
 /* USER CODE BEGIN Private defines */
-#define SIZE                 	110
-#define DISPLAY_WIDTH        	480
-#define DISPLAY_HEIGHT       	272
-#define ACTIVE_AREA_START_X 	1
-#define ACTIVE_AREA_START_Y    	1
+/*#define LCD_WIDTH	 480
+#define LCD_HEIGHT	272
+
+#define HFP   16
+#define HSYNC 96
+#define HBP   48
+
+#define VFP   10
+#define VSYNC 2
+#define VBP   33
+
+#define ACTIVE_W (HSYNC + LCD_WIDTH + HBP - 1)
+#define ACTIVE_H (VSYNC + LCD_HEIGHT + VBP - 1)
+
+#define TOTAL_WIDTH  (HSYNC + HBP + LCD_WIDTH + HFP - 1)
+#define TOTAL_HEIGHT (VSYNC + VBP + LCD_HEIGHT + VFP - 1)*/
+
+int LCD_WIDTH;
+int LCD_HEIGHT;
+
+int HFP;
+int HBP;
+int HSYNC;
+
+int VFP;
+int VBP;
+int VSYNC;
+
+int ACTIVE_W;
+int ACTIVE_H;
+
+int TOTAL_WIDTH;
+int TOTAL_HEIGHT;
+
+int MAIN_BG_COLOR[3];
+int L1_BG_COLOR[3];
+int L2_BG_COLOR[3];
 /* USER CODE END Private defines */
 
 void MX_LTDC_Init(void);
