@@ -48,14 +48,6 @@
   */
 /* USER CODE END Header */
 
-
-#include <list>
-#include "../Drivers/Expanders/MCP/MCP23008/MCP23008.h"
-#include "../Drivers/Expanders/MCP/MCP23017/MCP23017.h"
-
-MCP23008 MCP23008_list[8];
-MCP23017 MCP23017_list[8];
-
 #ifdef __cplusplus
  extern "C" {
 #endif
@@ -74,7 +66,11 @@ MCP23017 MCP23017_list[8];
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "../Drivers/Expanders/MCP/MCP23008/MCP23008.h"
+#include "../Drivers/Expanders/MCP/MCP23017/MCP23017.h"
+#include "../Drivers/LEDDrivers/NXP/PCA9622/PCA9622.h"
+#include "../Drivers/LEDDrivers/NXP/PCA9624/PCA9624.h"
+#include "../Drivers/LEDDrivers/NXP/PCA9626/PCA9626.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -95,7 +91,7 @@ MCP23017 MCP23017_list[8];
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+PCA9626 SCU_LED_DRIVER;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -161,6 +157,10 @@ int main(void)
   /* We should never get here as control is now taken by the scheduler */
 
   /* Infinite loop */
+
+  SCU_LED_DRIVER.init(1, 0xAA); //Address 10101010 before shift.
+  SCU_LED_DRIVER.begin();
+  //Will create variables to hold the binary for known functions for the LEDs
 
 
   /* USER CODE BEGIN WHILE */
