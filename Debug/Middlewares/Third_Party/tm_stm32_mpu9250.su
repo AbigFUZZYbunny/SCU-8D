@@ -1,0 +1,5 @@
+tm_stm32_mpu9250.c:164:21:TM_MPU9250_Init	24	static
+tm_stm32_mpu9250.c:267:21:TM_MPU9250_ReadAcce	24	static
+tm_stm32_mpu9250.c:282:21:TM_MPU9250_ReadGyro	24	static
+tm_stm32_mpu9250.c:295:21:TM_MPU9250_ReadMag	32	static
+tm_stm32_mpu9250.c:312:21:TM_MPU9250_DataReady	16	static
