@@ -55,7 +55,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
-#include "can.h"
 #include "dma2d.h"
 #include "i2c.h"
 #include "ltdc.h"
@@ -63,6 +62,7 @@
 #include "tim.h"
 #include "usb_device.h"
 #include "gpio.h"
+#include "fmc.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -91,7 +91,9 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-PCA9626 SCU_LED_DRIVER;
+#ifdef SCU8D_001
+ PCA9626 SCU_LED_DRIVER;
+#endif
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -137,14 +139,15 @@ int main(void)
   MX_LTDC_Init();
   MX_DMA2D_Init();
   MX_I2C1_Init();
-  MX_I2C2_Init();
-  MX_SPI6_Init();
-  MX_SPI5_Init();
-  MX_I2C3_Init();
-  MX_CAN1_Init();
   MX_TIM7_Init();
   MX_TIM6_Init();
+  MX_SPI3_Init();
+  MX_SPI1_Init();
+  MX_FMC_Init();
   /* USER CODE BEGIN 2 */
+
+  SCU_LED_DRIVER.init(1, LEDDRIVERADD);
+  SCU_LED_DRIVER.begin();
 
   /* USER CODE END 2 */
 
@@ -158,9 +161,6 @@ int main(void)
 
   /* Infinite loop */
 
-  SCU_LED_DRIVER.init(1, 0xAA); //Address 10101010 before shift.
-  SCU_LED_DRIVER.begin();
-  //Will create variables to hold the binary for known functions for the LEDs
 
 
   /* USER CODE BEGIN WHILE */

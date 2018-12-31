@@ -59,16 +59,6 @@ LTDC_HandleTypeDef hltdc;
 /* LTDC init function */
 void MX_LTDC_Init(void)
 {
-	ACTIVE_H = (VSYNC + LCD_HEIGHT + VBP - 1);
-	ACTIVE_W = (HSYNC + LCD_WIDTH + HBP - 1);
-
-	TOTAL_HEIGHT = (VSYNC + VBP + LCD_HEIGHT + VFP - 1);
-	TOTAL_WIDTH = (HSYNC + HBP + LCD_WIDTH + HFP - 1);
-
-
-  LTDC_LayerCfgTypeDef pLayerCfg = {0};
-  LTDC_LayerCfgTypeDef pLayerCfg1 = {0};
-
   hltdc.Instance = LTDC;
   hltdc.Init.HSPolarity = LTDC_HSPOLARITY_AL;
   hltdc.Init.VSPolarity = LTDC_VSPOLARITY_AL;
@@ -94,8 +84,8 @@ void MX_LTDC_Init(void)
   pLayerCfg.WindowY0 = 0;
   pLayerCfg.WindowY1 = 0;
   pLayerCfg.PixelFormat = LTDC_PIXEL_FORMAT_ARGB8888;
-  pLayerCfg.Alpha = 0;
-  pLayerCfg.Alpha0 = 0;
+  pLayerCfg.Alpha = 0xFF;
+  pLayerCfg.Alpha0 = 0xFF;
   pLayerCfg.BlendingFactor1 = LTDC_BLENDING_FACTOR1_CA;
   pLayerCfg.BlendingFactor2 = LTDC_BLENDING_FACTOR2_CA;
   pLayerCfg.FBStartAdress = 0;
@@ -120,9 +110,9 @@ void MX_LTDC_Init(void)
   pLayerCfg1.FBStartAdress = 0;
   pLayerCfg1.ImageWidth = 0;
   pLayerCfg1.ImageHeight = 0;
-  pLayerCfg1.Backcolor.Blue = 0;
-  pLayerCfg1.Backcolor.Green = 0;
-  pLayerCfg1.Backcolor.Red = 0;
+  pLayerCfg1.Backcolor.Blue = 0xFF;
+  pLayerCfg1.Backcolor.Green = 0xFF;
+  pLayerCfg1.Backcolor.Red = 0xFF;
   if (HAL_LTDC_ConfigLayer(&hltdc, &pLayerCfg1, 1) != HAL_OK)
   {
     Error_Handler();
@@ -284,6 +274,33 @@ void HAL_LTDC_MspDeInit(LTDC_HandleTypeDef* ltdcHandle)
 } 
 
 /* USER CODE BEGIN 1 */
+
+void Layer_Update(int _layer, uint8_t _bgColor[4]){
+	switch(_layer){
+	case 1:
+		pLayerCfg.Alpha = _bgColor[3];
+		pLayerCfg.Alpha0 = _bgColor[3];
+		pLayerCfg.Backcolor.Red = _bgColor[0];
+		pLayerCfg.Backcolor.Green = _bgColor[1];
+		pLayerCfg.Backcolor.Blue = _bgColor[2];
+		if (HAL_LTDC_ConfigLayer(&hltdc, &pLayerCfg, 0) != HAL_OK)
+		{
+			Error_Handler();
+		}
+		break;
+	case 2:
+		pLayerCfg1.Alpha = _bgColor[3];
+		pLayerCfg1.Alpha0 = _bgColor[3];
+		pLayerCfg1.Backcolor.Red = _bgColor[0];
+		pLayerCfg1.Backcolor.Green = _bgColor[1];
+		pLayerCfg1.Backcolor.Blue = _bgColor[2];
+		if (HAL_LTDC_ConfigLayer(&hltdc, &pLayerCfg1, 1) != HAL_OK)
+		{
+			Error_Handler();
+		}
+		break;
+	}
+}
 
 /* USER CODE END 1 */
 

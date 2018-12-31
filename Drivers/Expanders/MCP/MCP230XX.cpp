@@ -36,9 +36,9 @@ void MCP230XX::write_register(uint8_t register_pointer, uint8_t register_value)
     case 1:
     	HAL_I2C_Master_Transmit(&hi2c1, i2cAddress<<1, data, 2, 20);
     	break;
-    case 2:
+    /*case 2:
     	HAL_I2C_Master_Transmit(&hi2c2, i2cAddress<<1, data, 2, 20);
-    	break;
+    	break;*/
     }
 }
 
@@ -50,10 +50,10 @@ uint8_t ** MCP230XX::read_state(uint8_t ** receive_buffer){ //receive_buffer wil
 			HAL_I2C_Master_Transmit(&hi2c1, i2cAddress<<1, &_GPIOA, 1, 10);
 			HAL_I2C_Master_Receive(&hi2c1, i2cAddress<<1, receive_buffer[0], 1, 10);
 			break;
-		case 2:
+		/*case 2:
 			HAL_I2C_Master_Transmit(&hi2c2, i2cAddress<<1, &_GPIOA, 1, 10);
 			HAL_I2C_Master_Receive(&hi2c2, i2cAddress<<1, receive_buffer[0], 1, 10);
-			break;
+			break;*/
 	}
 
 	if(ports > 1){
@@ -62,10 +62,10 @@ uint8_t ** MCP230XX::read_state(uint8_t ** receive_buffer){ //receive_buffer wil
 			  	HAL_I2C_Master_Transmit(&hi2c1, i2cAddress<<1, &_GPIOB, 1, 10);
 			  	HAL_I2C_Master_Receive(&hi2c1, i2cAddress<<1, receive_buffer[1], 1, 10);
 			   	break;
-			case 2:
+			/*case 2:
 			   	HAL_I2C_Master_Transmit(&hi2c2, i2cAddress<<1, &_GPIOB, 1, 10);
 			   	HAL_I2C_Master_Receive(&hi2c2, i2cAddress<<1, receive_buffer[1], 1, 10);
-			   	break;
+			   	break;*/
 			}
 
 		return receive_buffer;
@@ -86,9 +86,9 @@ uint8_t MCP230XX::set_output(uint8_t _out){
 		case 1:
 			HAL_I2C_Master_Transmit(&hi2c1, i2cAddress<<1, data, 2, 20);
 			break;
-		case 2:
+		/*case 2:
 			HAL_I2C_Master_Transmit(&hi2c2, i2cAddress<<1, data, 2, 20);
-			break;
+			break;*/
 	}
 
 	return _out;

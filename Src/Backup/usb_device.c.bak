@@ -52,8 +52,8 @@
 #include "usb_device.h"
 #include "usbd_core.h"
 #include "usbd_desc.h"
-#include "usbd_cdc.h"
-#include "usbd_cdc_if.h"
+#include "usbd_customhid.h"
+#include "usbd_custom_hid_if.h"
 
 /* USER CODE BEGIN Includes */
 
@@ -99,9 +99,9 @@ void MX_USB_DEVICE_Init(void)
   /* Init Device Library, add supported class and start the library. */
   USBD_Init(&hUsbDeviceHS, &HS_Desc, DEVICE_HS);
 
-  USBD_RegisterClass(&hUsbDeviceHS, &USBD_CDC);
+  USBD_RegisterClass(&hUsbDeviceHS, &USBD_CUSTOM_HID);
 
-  USBD_CDC_RegisterInterface(&hUsbDeviceHS, &USBD_Interface_fops_HS);
+  USBD_CUSTOM_HID_RegisterInterface(&hUsbDeviceHS, &USBD_CustomHID_fops_HS);
 
   USBD_Start(&hUsbDeviceHS);
 

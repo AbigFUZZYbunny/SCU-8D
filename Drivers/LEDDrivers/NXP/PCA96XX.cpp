@@ -35,9 +35,9 @@ void PCA96XX::write_register(uint8_t register_pointer, uint8_t register_value){
 	case 1:
 	  	HAL_I2C_Master_Transmit(&hi2c1, i2cAddress<<1, data, 2, 20);
 	   	break;
-	case 2:
+	/*case 2:
 	   	HAL_I2C_Master_Transmit(&hi2c2, i2cAddress<<1, data, 2, 20);
-	   	break;
+	   	break;*/
 	}
 }
 
@@ -54,9 +54,9 @@ void PCA96XX::set_output(){
 		case 1:
 			HAL_I2C_Master_Transmit(&hi2c1, i2cAddress<<1, data1, 3, 250);
 			break;
-		case 2:
+		/*case 2:
 			HAL_I2C_Master_Transmit(&hi2c2, i2cAddress<<1, data1, 3, 250);
-			break;
+			break;*/
 		}
 		break;
 	case 2:
@@ -72,9 +72,9 @@ void PCA96XX::set_output(){
 		case 1:
 			HAL_I2C_Master_Transmit(&hi2c1, i2cAddress<<1, data2, 5, 250);
 			break;
-		case 2:
+		/*case 2:
 			HAL_I2C_Master_Transmit(&hi2c2, i2cAddress<<1, data2, 5, 250);
-			break;
+			break;*/
 		}
 		break;
 	case 3:
@@ -92,9 +92,9 @@ void PCA96XX::set_output(){
 		case 1:
 			HAL_I2C_Master_Transmit(&hi2c1, i2cAddress<<1, data3, 7, 250);
 			break;
-		case 2:
+		/*case 2:
 			HAL_I2C_Master_Transmit(&hi2c2, i2cAddress<<1, data3, 7, 250);
-			break;
+			break;*/
 		}
 		break;
 	}

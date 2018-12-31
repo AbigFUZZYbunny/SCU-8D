@@ -1,8 +1,8 @@
 /**
   ******************************************************************************
-  * File Name          : CAN.c
+  * File Name          : FMC.h
   * Description        : This file provides code for the configuration
-  *                      of the CAN instances.
+  *                      of the FMC peripheral.
   ******************************************************************************
   * This notice applies to any and all portions of this file
   * that are not between comment pairs USER CODE BEGIN and
@@ -46,94 +46,48 @@
   *
   ******************************************************************************
   */
+/* Define to prevent recursive inclusion -------------------------------------*/
+#ifndef __FMC_H
+#define __FMC_H
+#ifdef __cplusplus
+ extern "C" {
+#endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "can.h"
+#include "main.h"
 
-/* USER CODE BEGIN 0 */
+/* USER CODE BEGIN Includes */
 
-/* USER CODE END 0 */
+/* USER CODE END Includes */
 
-CAN_HandleTypeDef hcan1;
+extern NOR_HandleTypeDef hnor3;
+extern SDRAM_HandleTypeDef hsdram1;
 
-/* CAN1 init function */
-void MX_CAN1_Init(void)
-{
+/* USER CODE BEGIN Private defines */
 
-  hcan1.Instance = CAN1;
-  hcan1.Init.Prescaler = 16;
-  hcan1.Init.Mode = CAN_MODE_NORMAL;
-  hcan1.Init.SyncJumpWidth = CAN_SJW_1TQ;
-  hcan1.Init.TimeSeg1 = CAN_BS1_1TQ;
-  hcan1.Init.TimeSeg2 = CAN_BS2_1TQ;
-  hcan1.Init.TimeTriggeredMode = DISABLE;
-  hcan1.Init.AutoBusOff = DISABLE;
-  hcan1.Init.AutoWakeUp = DISABLE;
-  hcan1.Init.AutoRetransmission = DISABLE;
-  hcan1.Init.ReceiveFifoLocked = DISABLE;
-  hcan1.Init.TransmitFifoPriority = DISABLE;
-  if (HAL_CAN_Init(&hcan1) != HAL_OK)
-  {
-    Error_Handler();
-  }
+/* USER CODE END Private defines */
 
+void MX_FMC_Init(void);
+void HAL_NOR_MspInit(NOR_HandleTypeDef* hnor);
+void HAL_NOR_MspDeInit(NOR_HandleTypeDef* hnor);
+void HAL_SDRAM_MspInit(SDRAM_HandleTypeDef* hsdram);
+void HAL_SDRAM_MspDeInit(SDRAM_HandleTypeDef* hsdram);
+
+/* USER CODE BEGIN Prototypes */
+
+/* USER CODE END Prototypes */
+
+#ifdef __cplusplus
 }
+#endif
+#endif /*__FMC_H */
 
-void HAL_CAN_MspInit(CAN_HandleTypeDef* canHandle)
-{
+/**
+  * @}
+  */
 
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-  if(canHandle->Instance==CAN1)
-  {
-  /* USER CODE BEGIN CAN1_MspInit 0 */
-
-  /* USER CODE END CAN1_MspInit 0 */
-    /* CAN1 clock enable */
-    __HAL_RCC_CAN1_CLK_ENABLE();
-  
-    __HAL_RCC_GPIOD_CLK_ENABLE();
-    /**CAN1 GPIO Configuration    
-    PD0     ------> CAN1_RX
-    PD1     ------> CAN1_TX 
-    */
-    GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-    GPIO_InitStruct.Alternate = GPIO_AF9_CAN1;
-    HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
-
-  /* USER CODE BEGIN CAN1_MspInit 1 */
-
-  /* USER CODE END CAN1_MspInit 1 */
-  }
-}
-
-void HAL_CAN_MspDeInit(CAN_HandleTypeDef* canHandle)
-{
-
-  if(canHandle->Instance==CAN1)
-  {
-  /* USER CODE BEGIN CAN1_MspDeInit 0 */
-
-  /* USER CODE END CAN1_MspDeInit 0 */
-    /* Peripheral clock disable */
-    __HAL_RCC_CAN1_CLK_DISABLE();
-  
-    /**CAN1 GPIO Configuration    
-    PD0     ------> CAN1_RX
-    PD1     ------> CAN1_TX 
-    */
-    HAL_GPIO_DeInit(GPIOD, GPIO_PIN_0|GPIO_PIN_1);
-
-  /* USER CODE BEGIN CAN1_MspDeInit 1 */
-
-  /* USER CODE END CAN1_MspDeInit 1 */
-  }
-} 
-
-/* USER CODE BEGIN 1 */
-
-/* USER CODE END 1 */
+/**
+  * @}
+  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

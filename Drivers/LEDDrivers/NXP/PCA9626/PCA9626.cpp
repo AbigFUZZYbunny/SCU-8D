@@ -33,9 +33,9 @@ void PCA9626::begin(uint8_t _pwm[24]){
 	case 1:
 	  	HAL_I2C_Master_Transmit(&hi2c1, i2cAddress<<1, data, 25, 250);
 	   	break;
-	case 2:
+	/*case 2:
 	   	HAL_I2C_Master_Transmit(&hi2c2, i2cAddress<<1, data, 25, 250);
-	   	break;
+	   	break;*/
 	}
 
 	dim(0xFF);
@@ -54,9 +54,9 @@ void PCA9626::begin(){
 	case 1:
 	  	HAL_I2C_Master_Transmit(&hi2c1, i2cAddress<<1, data, 25, 250);
 	   	break;
-	case 2:
+	/*case 2:
 	   	HAL_I2C_Master_Transmit(&hi2c2, i2cAddress<<1, data, 25, 250);
-	   	break;
+	   	break;*/
 	}
 
 	dim(0xFF);

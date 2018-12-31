@@ -55,7 +55,8 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include <stdint.h>
+#include "defines.h"
+#include "stm32f4xx_hal_ltdc.h"
 
 /* USER CODE BEGIN Includes */
 
@@ -64,48 +65,20 @@
 extern LTDC_HandleTypeDef hltdc;
 
 /* USER CODE BEGIN Private defines */
-/*#define LCD_WIDTH	 480
-#define LCD_HEIGHT	272
 
-#define HFP   16
-#define HSYNC 96
-#define HBP   48
+uint8_t MAIN_BGCOLOR[4];
+uint8_t L1_BGCOLOR[4];
+uint8_t L2_BGCOLOR[4];
 
-#define VFP   10
-#define VSYNC 2
-#define VBP   33
+LTDC_LayerCfgTypeDef pLayerCfg;
+LTDC_LayerCfgTypeDef pLayerCfg1;
 
-#define ACTIVE_W (HSYNC + LCD_WIDTH + HBP - 1)
-#define ACTIVE_H (VSYNC + LCD_HEIGHT + VBP - 1)
-
-#define TOTAL_WIDTH  (HSYNC + HBP + LCD_WIDTH + HFP - 1)
-#define TOTAL_HEIGHT (VSYNC + VBP + LCD_HEIGHT + VFP - 1)*/
-
-int LCD_WIDTH;
-int LCD_HEIGHT;
-
-int HFP;
-int HBP;
-int HSYNC;
-
-int VFP;
-int VBP;
-int VSYNC;
-
-int ACTIVE_W;
-int ACTIVE_H;
-
-int TOTAL_WIDTH;
-int TOTAL_HEIGHT;
-
-uint8_t MAIN_BG_COLOR[3];
-uint8_t L1_BG_COLOR[3];
-uint8_t L2_BG_COLOR[3];
-
-int REFRESH_RATE;
 /* USER CODE END Private defines */
 
 void MX_LTDC_Init(void);
+void HAL_LTDC_MspInit(LTDC_HandleTypeDef* ltdcHandle);
+void HAL_LTDC_MspDeInit(LTDC_HandleTypeDef* ltdcHandle);
+void Layer_Update(int _layer, uint8_t _bgColor[4]);
 
 /* USER CODE BEGIN Prototypes */
 
